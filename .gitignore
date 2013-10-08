@@ -8,3 +8,5 @@ tp1b/informe/*.synctex.gz
 tp1b/informe/*.bbl
 tp1b/informe/*.blg
 tp1b/informe/*.dvi
+.gitignore~
+tp1b/informe/caratula.tex.backup
