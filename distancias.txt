@@ -1,0 +1,8 @@
+'California': 'www.berkeley.edu',#169.229.216.200   10408.3 km (dividir por 2*10^5 y multiplicar por 2 para que sea rtt)
+'Oxford': 'www.ox.ac.uk',#163.1.60.42   11101.9 km   (dividir por 2*10^5 y multiplicar por 2 para que sea rtt)
+'Tokyo': 'www.u-tokyo.ac.jp',#59.106.161.11 18389.1 km   (dividir por 2*10^5 y multiplicar por 2 para que sea rtt)
+
+Lugar:          RTT teórico
+California:     0,104083s
+Oxford          0,111019s
+Tokyo           0,183891s
