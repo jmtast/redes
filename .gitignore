@@ -1,0 +1,10 @@
+tp1b/informe/*.tex~
+tp1b/informe/*.aux
+tp1b/informe/*.toc
+tp1b/informe/*.pdf
+tp1b/informe/*.out
+tp1b/informe/*.log
+tp1b/informe/*.synctex.gz
+tp1b/informe/*.bbl
+tp1b/informe/*.blg
+tp1b/informe/*.dvi
