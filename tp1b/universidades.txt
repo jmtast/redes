@@ -1,0 +1,3 @@
+California	www.berkeley.edu	169.229.216.200
+Oxford	www.ox.ac.uk	163.1.60.42
+Tokyo	www.u-tokyo.ac.jp	59.106.161.11
