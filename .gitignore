@@ -10,3 +10,4 @@ tp1b/informe/*.blg
 tp1b/informe/*.dvi
 .gitignore~
 tp1b/informe/caratula.tex.backup
+tp1b/*.pyc
