@@ -10,10 +10,16 @@ class Object
     times << line_as_array[size-2]                                # fills the variable that will be written
     times << line_as_array[size-1]                                # 
 
-    File.open("./results/results.txt", "a") do |f|                #
-      f.write times.join(" ")                                     # writes (appends) the output file
-      f.write "\n"                                                #
-    end                                                           #
+    times.each{ |elem| return if elem == "*" }
+
+    times = times.join(" ")
+
+    if times.length <= 23
+      File.open("./results/results.txt", "a") do |f|                #
+        f.write times                                               # writes (appends) the output file
+        f.write "\n"                                                #
+      end                                                           #
+    end
   end
 
   def get_lines(file)
