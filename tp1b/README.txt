@@ -28,3 +28,14 @@ Ejecutar en la consola el comando
 OBSERVACIÓN IMPORTANTE: Hay que tener cuidado, porque si algún output de run_tests.sh dio *, se desfasa todo el output y el script no sirve para esa línea. Como forma de evitarlo, se me ocurrió que si la línea tiene más de 23 columnas, se ignora (3 dígitos, el punto, 3 dígitos y el espacio). Escucho sugerencias.
 
 =================================
+
+Sobre rtt_traceroute.py
+
+- Precisa tener python instalado
+- El archivo hostsDestinoInput debe tener una línea por host con los siguientes datos tabulados: nombre, dns, ip (ver ejemplo universidades.txt)
+
+Utilización:
+Ejecutar en la consola:
+	sudo python rtt_traceroute interfaz max_hops iteraciones archivoHostsDestinoInput
+
+Este script levantará los hosts destino del archivo especificado, y para cada uno correrá #iteraciones del traceroute implementado a través de scapy. Por cada set de corridas de cada host creará un output con nro. de it y RTT de cada corrida.
