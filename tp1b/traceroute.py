@@ -22,7 +22,7 @@ def traceroute(iface, ipdst, limit=64):
             else:
                 ip = "(*)"
         else:
-            ip = "(*)"
+            ip = "(**)"
             
         ttl = ttl + 1
         answers.append((ip, rtt))
