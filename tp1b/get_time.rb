@@ -1,5 +1,5 @@
 class Object
-  def get_time
+  def get_time(filename)
     line_as_array = self.split(" ")                               # splits output into an array by spaces
     line_as_array = line_as_array.reject{ |elem| elem == "ms" }   # removes the "ms" from the array
     
@@ -15,19 +15,21 @@ class Object
     times = times.join(" ")
 
     if times.length <= 23
-      File.open("./results/results.txt", "a") do |f|                #
+      File.open("./results/#{filename}.txt", "a") do |f|                #
         f.write times                                               # writes (appends) the output file
         f.write "\n"                                                #
       end                                                           #
     end
   end
 
-  def get_lines(file)
+  def get_lines(file, filename)
     file = File.read(file)                                       # loads traceroute file
     file = file.split("\n")
-    file.each{ |line| line.get_time() }
+    file.each{ |line| line.get_time(filename) }
   end
 
 end
 
-get_lines("./tests/tests.txt")
+puts "Ingrese universidad y franja horaria (formato: \"universidad-xxhs\", universidad = california, oxford o tokyo y xx el horario de la franja)"
+filename = gets.chomp
+get_lines("./tests/tests.txt", filename)
