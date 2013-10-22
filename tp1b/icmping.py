@@ -8,28 +8,28 @@ import time
 from scapy.all import *
 
 
-def icmping(iface, dst, ttl=64):
+def icmping(dst, ttl=64):
     ip = IP(dst=dst, ttl=ttl)  # Armo paquete IP
     icmp = ICMP()  # Armo un paquete ICMP, por defecto su operacion es echo-request
 
     initTime = time.time()
-    answer = sr1(ip / icmp, iface=iface, timeout=1, verbose=0)
+    answer = sr1(ip / icmp, timeout=5, verbose=0)
 
     return (answer, time.time() - initTime)
 
 
 def main():
 
-    if len(sys.argv) < 3:
-        print "Error: faltan parametros. Uso: icmping.py interfaz ip [ttl]."
+    if len(sys.argv) < 2:
+        print "Error: faltan parametros. Uso: icmping.py ip [ttl]."
         exit(1)
 
-    dst = sys.argv[2]
+    dst = sys.argv[1]
 
     if len(sys.argv) >= 4:
-        (answer, rtt) = icmping(sys.argv[1], dst, int(sys.argv[3]))
+        (answer, rtt) = icmping(dst, int(sys.argv[2]))
     else:
-        (answer, rtt) = icmping(sys.argv[1], dst)
+        (answer, rtt) = icmping(dst)
 
     if answer:
         print "El host %s ha respondido en %f s:" % (dst, rtt)
