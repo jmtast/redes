@@ -27,3 +27,25 @@ Para realizar los experimentos se eligieron 3 universidades de distintos contine
 \subsection{Implementación de \textsl{Traceroute}}
 
 El objetivo de la herramienta \textsl{traceroute} es examinar y trazar una porción de la ruta que atraviesa un paquete desde un origen hasta cierto destino a lo largo de las distintas redes por las que navega. Si bien tanto el sistema operativo Linux como la biblioteca de \textit{Python}, \textsl{Scapy}, proveen robustas implementaciones de esta utilidad, en principio no aplican para tomar tiempos, entre ellos el \textit{RTT}. Es por eso que se procedió a una implementación propia de \textsl{traceroute} basado en el enfoque de envío de paquetes \textit{ICMP}. En un \textit{ping} tradicional, dado un origen y un destino, el primero envía un paquete IP junto con un mensaje ICMP de tipo \textit{echo-request} a la espera de una respuesta satisfactoria de tipo \textit{echo-reply}. Para que esto suceda con éxito, el paquete ip debe tener un valor suficientemente grande en su campo \textit{ttl - time to live} de modo que los distintos nodos de la ruta lo reenvien hacia destino. En caso de que ese campo no sea suficiente para que el paquete llegue al destino deseado, el nodo que detecta el agotamiento de su \textit{ttl} responde con un mensaje ICMP de tipo {time-exceeded}. Tomando esta característica de la transmisión de paquetes y mensajes ICMP, la idea detrás de esta implementación de traceroute consiste en realizar sucesivos envíos de un paquete IP + mensaje ICMP \textit{echo-request} a destino comenzando con un \textit{ttl} unitario e incrementándolo en uno. De esta manera, el paquete 'muere' en distintos puntos del tramo y se puede identificar algunos de los nodos que se atraviesan ya que estos proveen su información al responder \textit{time-exceeded}.\\
+\indent En el siguiente pseudocódigo se exhibe la idea detrás del algoritmo implementado.\\
+
+\begin{algorithm}
+\caption{traceroute (\textbf{in} $ipDest$, \textbf{in} $max\_hops$)}
+\begin{algorithmic}[1]
+
+\STATE $ttl \leftarrow 1$
+\WHILE{$ttl < max\_hops$ y no se llego a destino}
+	\STATE enviar mensaje ICMP \textsl{echo-request} sobre paquete IP con $ipDest$ y $ttl$
+	\IF{hubo $respuesta$}
+		\IF{$respuesta$ es de tipo \textsl{echo-reply}}
+			\STATE imprimir datos de emisor de $respuesta$ y terminar
+		\ELSE
+			\STATE imprimir datos de emisor de $respuesta$
+		\ENDIF
+	\ENDIF
+	\STATE $ttl \leftarrow ttl + 1$
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}
+
+\indent Al poder acceder al interior de este algoritmo, la modificación que se realizó fue la de realizar una diferencia de tiempo entre el instante previo al envío del mensaje y el instante posterior a la recepción de la respuesta. De esta manera, por cada paso de la ruta tenemos un valor empírico del $RTT$. Así podemos contar con todos los $round-trip time$ de origen a cada nodo de la ruta y en particular a la de destino. En cierta forma esta versión de traceroute lleva implícita la funcionalidad de \textsl{ping}. Es importante notar que pueden existir valores de $ttl$ para los cuales no se obtenga respuesta (se supera el timeout del envío). Esto se puede deber a múltiples factores, pero no afecta la performance del algoritmo ya que se sigue adelante con un tiempo de vida mayor.\\
