@@ -56,5 +56,23 @@ Basta con realizar un simple $ping$ a algún destino para notar a simple vista q
 
 \subsection{Detección de Enlaces Transatlánticos}
 
-Con el fin de identificar posibles enlaces transatlánticos se creó el programa $trans\_atlantic\_traceroute$ en $Python$ que, dada la ruta con sus respectivos $rtt$ calculada por el algoritmo anterior, aplica la heurística recomendada en la consigna del trabajo para separar los posibles hops involucrados en un enlace del tipo buscado.
+Con el fin de identificar posibles enlaces transatlánticos se creó el programa $trans\_atlantic\_traceroute$ en $Python$ que, dada la ruta con sus respectivos $rtt$ calculada por el algoritmo anterior, aplica la heurística recomendada en la consigna del trabajo para separar los posibles hops involucrados en un enlace del tipo buscado. La implementación se basa en el Algoritmo 2. De alguna manera, el parámetro de entrada $m$ impone en cierta forma la tolerancia para considerar un enlace como transatlántico. Si su valor es muy chico podrían incurrise en clasificación de muchos enlaces erróneamente, mientras que si fuera mucho mayor a 2 la exigencia puede generar falsos negativos.\\
 
+\begin{algorithm}
+\caption{detectarEnlacesTransatlanticos (\textbf{in} $ipDest$, \textbf{in} $m$ : \textsl{int}) $\rightarrow$ \textsl{res}}
+\begin{algorithmic}[1]
+
+\STATE $respuestas \leftarrow$ ejecutar traceroute a $ipDest$
+\WHILE{hay respuesta}
+	\STATE $rtt_{i}, rtt_{i+1} \leftarrow$ tomar rtts de hops contiguos
+	\STATE $acum \leftarrow actum + rtt_{i} + rtt_{i+1}$
+	\STATE $r \leftarrow rtt_{i+1} -  rtt_{i}$
+	\STATE $R \leftarrow$ sacar promedio de $acum$
+	\STATE $d \leftarrow$ calcular desvio estandar entre $rtt_{i}, rtt_{i+1}$ 
+	\IF{$r > R + m*d$}
+		\STATE agregar $hop_{i}, hop_{i+1}$ a $res$
+	\ENDIF
+\ENDWHILE
+\STATE retornar $res$
+\end{algorithmic}
+\end{algorithm}
