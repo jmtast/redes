@@ -4,7 +4,7 @@ function plot_ciudad_especifica(city)
 	else
     franjas = [0, 2, 8, 11, 15, 22];
     puntos = ['*', '+', 'o', 'x', '*', '.'];
-    colores = ['r', 'g', 'b', 'm', 'k', 'r'];
+    colores = ['b', 'k', 'r', 'm', 'g', 'r'];
 
     min_filas = 21;
 
