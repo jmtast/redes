@@ -19,12 +19,14 @@ function plot_ciudad_especifica(city)
 
     for i = 1:6
       marker = puntos(i);
-      style = {"marker", marker, "color", colores(i)};
+      style = "@";
+      style = strcat(style, marker);
+      style = strcat(style, colores(i));
 
       matriz_ciudad = load_matrix(city, franjas(i));
       vector_tiempos = [matriz_ciudad(1:min_filas,1); matriz_ciudad(1:min_filas,2); matriz_ciudad(1:min_filas,3)];
 
-  		plot(vector_tiempos, style{:}, " ");
+      plot(vector_tiempos, style);
 
       if (i == 1)
         hold on;
@@ -34,7 +36,7 @@ function plot_ciudad_especifica(city)
 		xlabel('Muestras');
 		ylabel('Roundtrip Time (ms)');
 		title('Roundtrip Time en una ciudad especifica');
-		legend('franja 00', 'franja 02', 'franja 08', 'franja 11', 'franja 15', 'franja 22');
+		legend('franja 00hs', 'franja 02hs', 'franja 08hs', 'franja 11hs', 'franja 15hs', 'franja 22hs');
 
 		hold off;
 
