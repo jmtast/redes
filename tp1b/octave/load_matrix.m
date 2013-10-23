@@ -1,6 +1,6 @@
 function matrix = load_matrix(ciudad, franja)
   path = strcat("../results/", ciudad)
-  if (franja == 0 || franja == 8)
+  if (franja < 10)
     path = strcat(path, "-0")
   else
     path = strcat(path, "-")
