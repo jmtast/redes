@@ -1,1 +1,48 @@
 \section{Resultados}
+
+\subsection{RTT Teórico}
+
+En este apartado describimos el desarrollo del cálculo teórico del \textit{Roundtrip Time} (RTT).
+\\
+Sabemos que el RTT es el tiempo que tarda la información en ir y volver, es decir:
+
+\begin{equation}
+	Rtt = 2 * Delay
+\end{equation}
+
+Es por esto que necesitamos calcular el delay, o tiempo que tarda la información en llegar al destino desde una fuente dada:
+
+\begin{equation}
+	Delay = T_{tx} + T_{prop}
+\end{equation}
+
+Creemos acorde para este caso, considerar despreciable el tiempo de transferencia o llenado del medio $T_{tx}$, dado que en comparación al tiempo de propagación, es ínfimo. Entonces debemos calcular:
+
+\begin{equation}
+	T_{prop} = D/V
+\end{equation}
+
+con $D$ la distancia del enlace y $V$ la velocidad de propagación. La distancia del enlace varía según el caso probado, y la velocidad de propagación la sacamos del enunciado ($2*10^5$ km/s).\\
+\\
+Distancias:
+\begin{itemize}
+	\item Universidad de California, Berkeley: \textbf{10412 km}
+	\item Universidad de Oxford: \textbf{11107 km}
+	\item Universidad de Tokio: \textbf{18372 km}
+\end{itemize}
+
+Tiempos de propagación (D/V):
+\begin{itemize}
+	\item Universidad de California, Berkeley: \textbf{0.05206 s}
+	\item Universidad de Oxford: \textbf{0.055535 s}
+	\item Universidad de Tokio:  \textbf{0.09186 s}
+\end{itemize}
+
+Al haber considerado despreciable el $T_{tx}$, el delay nos queda igual que el tiempo de propagación. Luego:\\
+\\
+Roundtrip Time ($2 * delay$):
+\begin{itemize}
+	\item Universidad de California, Berkeley: \textbf{0.10412 s}
+	\item Universidad de Oxford: \textbf{0.11107 s}
+	\item Universidad de Tokio:  \textbf{0.18372 s}
+\end{itemize}
