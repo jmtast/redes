@@ -10,8 +10,10 @@ def traceroute(ipdst, limit=64):
     done = False
     answers = []
     ttl = 1
-    socket.gethostbyaddr(ipdst)
-    print'traceroute a \'%s\'' % socket.gethostbyaddr(ipdst)[2][0]
+    try:
+        print'traceroute a \'%s\'' % socket.gethostbyaddr(ipdst)[2][0]
+    except:
+        pass
     while ttl <= limit and not done:
         ip = IP(dst=ipdst, ttl=ttl)  # Armo paquete IP
         icmp = ICMP()  # Armo un paquete ICMP, por defecto su operacion es echo-request

@@ -6,14 +6,13 @@ from traceroute import traceroute
 import datetime
 
 if len(sys.argv) < 5:
-  print "Error: faltan parametros. Uso: rtt_traceroute.py interfaz max_hops iteraciones archivoEntrada"
+  print "Error: faltan parametros. Uso: rtt_traceroute.py max_hops iteraciones archivoEntrada"
   exit(1)
-	
-interface = sys.argv[1]
-max_hops = int(sys.argv[2])
-it = int(sys.argv[3])
+        
+max_hops = int(sys.argv[1])
+it = int(sys.argv[2])
 #levanto datos de destinos
-with open(sys.argv[4]) as f:
+with open(sys.argv[3]) as f:
  lines = f.readlines()
 
 for line in lines:
@@ -24,7 +23,7 @@ for line in lines:
  #fd = os.open('rtt' + dst + '_' + str(dtime.hour) + 'h_' + str(dtime.minute) + 'm.txt', os.O_RDWR, int("0600", 8))
  #fs = os.fdopen(fd, 'w')
   for i in range (0, it):
-   answers = traceroute(interface, ip, max_hops)
+   answers = traceroute(dns, max_hops)
    rtt = answers[len(answers)-1][1]
    handle.write('%d\t%d\n' % (i,rtt*1000))
    #print('%d\t%d\n' % (i,rtt*1000))
