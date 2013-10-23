@@ -27,8 +27,6 @@ function plot_franjas
 		plot(franjas, M_tr_p(3,:), '@*3');
 		hold on;
 
-		%rtt teoricos como constantes
-
 		xlabel('Franjas horarias (hs)');
 		ylabel('Roundtrip Time (ms)');
 		title('RTT traceroute propio vs tr. linux a lo largo del dia');
