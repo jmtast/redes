@@ -33,7 +33,7 @@ function plot_ciudad_especifica(city)
       end
     end
 
-		xlabel('Muestras');
+		xlabel('Iteracion');
 		ylabel('Roundtrip Time (ms)');
 		title('Roundtrip Time en una ciudad especifica');
 		legend('franja 00hs', 'franja 02hs', 'franja 08hs', 'franja 11hs', 'franja 15hs', 'franja 22hs');
