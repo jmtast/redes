@@ -39,7 +39,7 @@ function plotRTTvsTeo(nroCiudad)
 	plot(franjas2, tr_l, '@^3');
 	hold on;
 
-	plot(franjas2, tr_p, '@*5');
+	plot(franjas2, tr_p, '@*0');
 	hold on;
 
 	xlabel('Franjas horarias (hs)');
