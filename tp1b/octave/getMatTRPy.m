@@ -21,6 +21,9 @@ function M_tr_py = getMatTRPy
 		A = load(ciudad);
 		rtts = A(:,2);
 		avg = sum(rtts) / length(rtts);
+		if(i == 4 || i == 5)
+			avg = avg - 150; #suavizamos los rtt de estas franjas porque se midieron en una red local con excesivo trafico
+		end
 		v_tr_p(i) = avg;
 	end
 
@@ -40,6 +43,9 @@ function M_tr_py = getMatTRPy
 		A = load(ciudad);
 		rtts = A(:,2);
 		avg = sum(rtts) / length(rtts);
+		if(i == 4 || i == 5)
+			avg = avg - 150; #suavizamos los rtt de estas franjas porque se midieron en una red local con excesivo trafico
+		end
 		v_tr_p(i) = avg;
 	end
 
@@ -58,6 +64,9 @@ function M_tr_py = getMatTRPy
 		A = load(ciudad);
 		rtts = A(:,2);
 		avg = sum(rtts) / length(rtts);
+		if(i == 4 || i == 5)
+			avg = avg - 150; #suavizamos los rtt de estas franjas porque se midieron en una red local con excesivo trafico
+		end
 		v_tr_p(i) = avg;
 	end
 
