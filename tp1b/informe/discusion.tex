@@ -1,1 +1,23 @@
 \section{Discusión}
+
+\subsection{RTT por ciudad}
+
+Se realizaron varias pruebas en distintos horarios del día contra las distintas universidades, para determinar si hay o no una diferencia en performance de la conexión según la cantidad de carga del host al que nos conectamos.\\
+\\
+\indent Nuestra hipótesis era que según en que momento del día nos conectemos, mejora o empeora el \textit{roundtrip time} según que tanto uso se le esté dando en el momento a las conexiones. Pasamos a verificar esto empíricamente.\\
+\\
+\indent Con este fin, determinamos distintas franjas horarias que creímos representativas de distintos momentos del día. Las mismas son: \textbf{00hs, 02hs, 08hs, 11hs, 15hs, 22hs}
+
+\subsubsection{Universidad de Tokio}
+Empezaremos explicando el más inmediato, que es el resultado de la Universidad de Tokio. Como se puede ver en la figura~\ref{fig:rtt-horarios-tokyo}, es marcada la diferencia de tiempo que nos toma enviar algo y recibir una respuesta entre las 2am y las 3pm nuestras, que equivalen a las 2pm y las 3am de ellos.\\
+\indent Podemos apreciar que a las 3am el roundtrip time puede bajar hasta más de la mitad que el visto a las 2pm, momento en el que es mucho más probable que haya gente en la facultad utilizando los equipos y la red.
+
+\subsubsection{Universidad de California}
+En la figura~\ref{fig:rtt-horarios-california} se pueden ver los resultados obtenidos para la Universidad de Berkeley, California. Su huso horario acusa 4hs menos que el de Argentina, por lo tanto, las franjas más diferenciadas son las 7am y 6pm.\\
+\indent Este resultado es un poco más ambiguo, mostrando cierta estabilidad a las 7am con un RTT que está alrededor de los 240ms casi siempre, y un comportamiento más disperso a las 6pm, momento en el cual se ven resultados un poco peores (entre 320 y 520ms, aproximadamente), y otros un poco mejores (cerca de los 180 o 200ms). Ambos horarios nos parecen coherentes para que la Universidad tenga sus equipos en uso, y las demás franjas horarias no mostraron mayores variaciones, sino que se manejaban entre estos valores.
+
+\subsubsection{Universidad de Oxford}
+Finalmente vemos que pasa con las conexiones a la Universidad de Oxford, cuyo horario es 4hs agregadas al nuestro. Los resultados más significativos resultaron ser los de las 3pm y las 10pm, que representan las 7pm y 2am locales.\\
+\indent Uno esperaría un resultado similar al de Tokio, en el cual por la madrugada la carga era menor y el RTT, por ende, también. La figura~\ref{fig:rtt-horarios-oxford} nos muestra que no es tan así, sino que en la franja de las 7pm hay un desempeño mucho más estable que en el de las 2am. Dicho desempeño no sólo es más estable, sino que también es mejor (menos RTT en general). Desconocemos las causas de por qué puede estar pasando esto.
+
+% CONCLUSION/TRABAJO FUTURO: Nuestra hipótesis en gran parte se cumple, pero no siempre. Tiene sentido, pero habría que realizar, tal vez, más experimentos durante más días y en otras franjas horarias para sacar conclusiones más acordes con la realidad.
