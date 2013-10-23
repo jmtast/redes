@@ -5,7 +5,7 @@ import os
 from traceroute import traceroute
 import datetime
 
-if len(sys.argv) < 5:
+if len(sys.argv) < 4:
   print "Error: faltan parametros. Uso: rtt_traceroute.py max_hops iteraciones archivoEntrada"
   exit(1)
         
