@@ -1,17 +1,19 @@
-function plot_franjas(city, franja0, franja2, franja8, franja11, franja15, franja22)
+function plot_franjas(matriz)
 
-	if(nargin != 7)
-		printf("ERROR: aridad plot_franjas(ciudad, franja0, franja2, franja8, franja11, franja15, franja22)\n")
+	if(nargin != 1)
+		printf("ERROR: la función recibe una matriz como parámetro)\n")
 	else
 		franjas = [0, 2, 8, 11, 15, 22];
-		promedios = [franja0, franja2, franja8, franja11, franja15, franja22];
-		plot(franjas, promedios, 'x');
+		plot(franjas, matriz(1,:), 'x');
 		hold on;
+
+		plot(franjas, matriz(2,:), 'o');
+		plot(franjas, matriz(3,:), '+');
 
 		xlabel('Franjas horarias');
 		ylabel('Roundtrip Time (ms)');
 		title('Roundtrip Time a lo largo del dia');
-		legend(city);
+		legend('Berkeley', 'Oxford', 'Tokio');
 
 		hold off;
 	end
