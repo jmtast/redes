@@ -1,11 +1,11 @@
 function matrix = load_matrix(ciudad, franja)
-  path = strcat("../results/", ciudad)
+  path = strcat("../results/", ciudad);
   if (franja < 10)
-    path = strcat(path, "-0")
+    path = strcat(path, "-0");
   else
-    path = strcat(path, "-")
+    path = strcat(path, "-");
   end
-  path = strcat(path, mat2str(franja))
-  path = strcat(path, "hs.txt")
-  matrix = dlmread(path)
+  path = strcat(path, mat2str(franja));
+  path = strcat(path, "hs.txt");
+  matrix = dlmread(path);
 end
