@@ -3,7 +3,7 @@ function plotRTTvsTeo(nroCiudad)
 	%vector de franjas, eje x
 	franjas = load('../results/franjas.txt');
 	franjas2 = franjas;
-	franjas(end + 1) = 24
+	franjas(end + 1) = 24;
 	
 	if(nroCiudad == 1)
 		city = 'Berkeley)';
@@ -33,6 +33,8 @@ function plotRTTvsTeo(nroCiudad)
 		t = [t rtt_teo];
 	end
 
+	max_y = max([tr_p tr_l]) + 10;
+
 	plot(franjas, t, "-1");
 	hold on;
 
@@ -48,7 +50,7 @@ function plotRTTvsTeo(nroCiudad)
 	title(tit);
 	legend('RTT teorico', 'RTT emp Lx', 'RTT emp Py', "location", "southwest");
 	legend("boxon");
-	axis([-0.5 24]);
+	axis([-0.5 24 0 max_y]);
 	hold off;
 
 	
