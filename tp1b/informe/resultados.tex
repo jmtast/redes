@@ -98,5 +98,42 @@ En las siguientes figuras se presentan los gráficos y diagramas realizados en f
   \label{fig:rtt-normalizado}
 \end{figure}
 
+\subsubsection{$T_{queue}$}
 
+El $T_{queue}$ es el tiempo que permanece un paquete en la cola de cada hop, hasta que viaja al siguiente destino. Calculamos el $T_{queue}$ global de cada destino y algunos $T_{queue}$ específicos de los hops intermedios (los que pudimos, dada la información que nos consiguió brindar traceroute). Los resultados son los siguientes:\\
 
+\begin{center}
+\begin{tabular}{| c | c | c |}	\hline
+	Berkeley 	& $T_{queue}$	& Distancia al anterior 	\\ \hline
+	Hop 1	& 27.070		& 9939.91 km			\\ \hline
+	Hop 2	& 50.680		& 4807.03 km		\\ \hline
+	Hop 3	& 55.176		& 7221.12 km 	\\ \hline
+	Hop 4	& 75.702		& 9558.47 km 	\\ \hline
+	Hop 5	& 31.973		& 9062.53 km	 \\ \hline
+	Hop 6	& 56.413		& 520.43 km	\\ \hline
+	Promedio & 18.238	& -	\\ \hline
+	Global	& 237.097	& -	\\ \hline
+\end{tabular}
+\vspace{1cm}
+\begin{tabular}{| c | c | c |}	\hline
+	Oxford 	& $T_{queue}$	& Distancia al anterior 	\\ \hline
+	Hop 1	& 51.158		& 4491.43 km			\\ \hline
+	Hop 2	& 53.750		& 486.91 km		\\ \hline
+	Hop 3	& 131.08		& 4807.03 km 	\\ \hline
+	Hop 4	& 5.3286		& 5708.73 km 	\\ \hline
+	Hop 5	& 374.57 	& 360.94 km	 \\ \hline
+	Hop 6	& 3.2951 	& 281.98 km	\\ \hline
+	Promedio & 36.931	& -	\\ \hline
+	Global	& 553.975	& -	\\ \hline
+\end{tabular}
+\vspace{1cm}
+\begin{tabular}{| c | c | c |}	\hline
+	Tokio 	& $T_{queue}$	& Distancia al anterior 	\\ \hline
+	Hop 1	& 40.831 	& 9939.91 km			\\ \hline
+	Hop 2	& 7.8821		& 7608.13 km		\\ \hline
+	Hop 3	& 52.497		& 3329.60 km 	\\ \hline
+	Hop 4	& 29.638		& 6656.10 km 	\\ \hline
+	Promedio & 71.799	& -	\\ \hline
+	Global	& 933.396	& -	\\ \hline
+\end{tabular}
+\end{center}
