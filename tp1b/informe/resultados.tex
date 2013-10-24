@@ -36,7 +36,37 @@ con $D$ la distancia del enlace y $V$ la velocidad de propagación. La distancia
 
 \subsection{RTT Empírico}
 
-En las siguientes figuras se presentan los gráficos y diagramas realizados en función de las muestras de RTT realizadas con las distintas implementaciones de traceroute y los experimentos propuestos. Es importante aclarar que las franjas horarias mencionadas corresponden al huso horario de la ciudad origen, es decir GMT-3 según se utiliza en la Ciudad Autónoma de Buenos Aires. En caso de que la franja represente otro huso horario, la aclaración pertinente se encontrará en el análisis correspondiente al experimento.
+En las siguientes figuras se presentan los gráficos y diagramas realizados en función de las muestras de RTT realizadas con las distintas implementaciones de traceroute y los experimentos propuestos. Es importante aclarar que las franjas horarias mencionadas corresponden al huso horario de la ciudad origen, es decir GMT-3 según se utiliza en la Ciudad Autónoma de Buenos Aires. En caso de que la franja represente otro huso horario, la aclaración pertinente se encontrará en el análisis correspondiente al experimento. Además, en los gráficos en función de las franjas, los valores de RTT han sido promediados de un total de 20 ejecuciones de la herramienta.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{./figs/franjasTR_py_vs_linux.png}
+  \caption{RTTs de ambos traceroute a cada destino en función de franja horaria}
+  \label{fig:frajasTR_py_lin}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./figs/rtt_emp_vs_teo_berkeley.png}
+  \caption{RTTs de ambos traceroute a Berkeley en contraste con el cálculo teórico}
+  \label{fig:emp_vs_teo_berk}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./figs/rtt_emp_vs_teo_oxford.png}
+  \caption{RTTs de ambos traceroute a Oxford en contraste con el cálculo teórico}
+  \label{fig:emp_vs_teo_ox}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./figs/rtt_emp_vs_teo_tokyo.png}
+  \caption{RTTs de ambos traceroute a Tokyo en contraste con el cálculo teórico}
+  \label{fig:emp_vs_teo_berk}
+\end{figure}
 
 \begin{figure}[h!]
   \centering
@@ -58,3 +88,15 @@ En las siguientes figuras se presentan los gráficos y diagramas realizados en f
   \caption{RTT representativo de la Universidad de Tokio}
   \label{fig:rtt-horarios-tokyo}
 \end{figure}
+
+\clearpage
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./figs/rtt_normalizado.png}
+  \caption{RTT a las 3 universidades en fase según un día laboral global}
+  \label{fig:rtt-normalizado}
+\end{figure}
+
+
+

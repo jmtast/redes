@@ -1,18 +1,9 @@
-\section{Introducción teórica}
+\section{Introducción}
 
-En el presente trabajo vamos a experimentar con la capa tres del modelo OSI,
-es decir, con el nivel de red.
+En el presente trabajo se realiza una amplia experimentación con la capa tres del modelo OSI, es decir, con el nivel de red. A partir de un desarrollo propio de la herramienta $traceroute$ (en su versión sobre mensajes ICMP) sobre el framework Scapy para python, se colectan muestras a lo largo del día de $round-trip time$ a 3 Universidades del mundo, así como también se colectan muestras utilizando otra implementación incluida en Linux de la misma aplicación. Debido a la variabilidad de esta medición, cada experimento se repite $n$ veces para luego obtener un promedio representativo de la colección de datos. En base a la implementación de traceroute en Python, se implementa además una heurística para poder identificar enlaces transatlánticos en la ruta, lo cual es objeto de la segunda parte de experimentación de este trabajo.\\
 
-En la primera parte vamos a implementar la herramienta \textit{ping} sobre el protocolo
-ICMP. Una vez programada dicha herramienta, vamos a utilizarla para hacer
-estimaciones del RTT a distintas partes del mundo. Para lograr una medición
-más precisa haremos un promedio de $n$ pruebas para evitar que otros factores
-influyan demasiado (como la congestión de la red, entre otros). Luego para
-cada host analizado se realiza una comparación con el RTT teórico, asumiendo
-una distancia lineal al objetivo y el uso de fibra óptica como único medio
-físico.
-Luego implementaremos la herramienta \textit{traceroute}, muy usada
-para el análisis del viaje de paquetes a través de la red, aprovechando el
-algoritmo implementado en la primera parte. Luego se harán pruebas a distintos
-destinos y en diferentes momentos del día para obtener un mejor análisis del
-estado de las rutas en la red.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{./figs/ruta_google.pdf}
+  \caption{Diagrama de una ruta trazada por $traceroute$ de Scapy}
+\end{figure}
