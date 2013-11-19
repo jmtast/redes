@@ -1,5 +1,28 @@
 README
 
+================================
+
+Sobre icmping.py
+
+Una pequeña aplicación para realizar un ping con mensaje ICMP.
+Uso: icmping.py ip [ttl].
+
+=================================
+
+Sobre traceroute.py
+
+Aplicación para calcular la ruta a un destino
+
+Uso: traceroute.py ip max_hops
+
+=================================
+
+Sobre trans_atlantic_traceroute.py
+
+Implementación de heurística que sobre una corrida de traceroute intenta identificar hops de enlaces transatlánticos
+
+Uso: traceroute.py ip limit [m]
+
 =================================
 
 Sobre run_tests.sh
@@ -36,3 +59,7 @@ Ejecutar en la consola:
 	sudo python rtt_traceroute interfaz max_hops iteraciones archivoHostsDestinoInput
 
 Este script levantará los hosts destino del archivo especificado, y para cada uno correrá #iteraciones del traceroute implementado a través de scapy. Por cada set de corridas de cada host creará un output con nro. de it y RTT de cada corrida.
+
+================================
+
+graph_traceroute.py y cron_graph_traceroute.py son accesorios y fueron utilizados para graficar, mediante las funcionalidades provistas por Scapy, la información de la traza encontrada por su implementación de traceroute.
